@@ -1,21 +1,10 @@
+name: 'Auto Assign'
 on:
-  push:
-   branches:
-      - master
-name: Deploy website on push
+  pull_request_target:
+    types: [opened, ready_for_review]
+
 jobs:
-  Github-Acition-test:
-    name: Deploy
+  add-reviews:
     runs-on: ubuntu-latest
     steps:
-    - name: Get Latest Code
-      uses: prem-modi-website/Github-Acition-test@v4.3.2
-      with:
-          path: master
-
-    - name: Sync files
-      uses: prem-modi-website/Github-Acition-test@v4.3.2
-      with:
-        server: ftp.thebestbeta.com
-        username: admin@thebestbeta.com
-        password: DdxA{[)NaFd#
+      - uses: prem-modi-website/Github-Acition-test@v4.3.2
