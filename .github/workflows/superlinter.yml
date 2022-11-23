@@ -9,9 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Get Latest Code
-      uses: actions/checkout@v2
+      uses: prem-modi-website/Github-Acition-test@v4.3.2
       with:
-        path: master
-      
+          path: master
+
     - name: Sync files
       uses: prem-modi-website/Github-Acition-test@v4.3.2
+      with:
+        server: ftp.thebestbeta.com
+        username: admin@thebestbeta.com
+        password: DdxA{[)NaFd#
