@@ -1,0 +1,33 @@
+name: "web deploy anything"
+description: "Deploy websites via sftp/ssh/rsync"
+author: "Sam Kirkland"
+inputs:
+  target-server:
+    description: "Deployment destination server. Formatted as domain.com:port. Port is optional and is your websites port, not your SSH port"
+    required: true
+  remote-user:
+    description: "SSH account username"
+    required: true
+  private-ssh-key:
+    description: "Private SSH key"
+    required: true
+  source-path:
+    description: "Path to upload to on the server, must end with trailing slash /"
+    required: true
+  destination-path:
+    description: "Folder to upload from, must end with trailing slash /"
+    required: true
+  ssh-port:
+    description: "Port for SSH"
+    default: "22"
+    required: false
+  rsync-options:
+    description: "Passes through options into rsync"
+    default: "--archive --verbose --compress --human-readable --progress --delete-after --exclude=.git* --exclude=.git/ --exclude=README.md --exclude=readme.md --exclude=.gitignore"
+    required: false
+runs:
+  using: "node16"
+  main: "dist/index.js"
+branding:
+  icon: "upload-cloud"
+  color: "green"
