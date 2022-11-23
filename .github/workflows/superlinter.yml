@@ -2,17 +2,17 @@ on:
   push:
    branches:
       - master
-name: Super-Linter
+name: Deploy website on push
 jobs:
   web-deploy:
-    name: Lint code base
+    name: Deploy
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
+    - name: Get letest code
       uses: actions/checkout@v2
       
-    - name: Super-Linter
-      uses: github/super-linter@v4.9.5
+    - name: Sync files
+      uses: SamKirkland/FTP-Deploy-Action@v4.2.0
       with:
         server: ftp.thebestbeta.com
         username: admin@thebestbeta.com
