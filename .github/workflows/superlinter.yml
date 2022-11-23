@@ -13,7 +13,3 @@ jobs:
       
     - name: Sync files
       uses: prem-modi-website/Github-Acition-test@v4.3.2
-      with:
-        server: ftp.thebestbeta.com
-        username: admin@thebestbeta.com
-        password: DdxA{[)NaFd#
