@@ -1,12 +1,21 @@
-name: 'Auto Assign'
 on:
-  pull_request_target:
-    types: [opened, ready_for_review]
-
+  push:
+   branches:
+      - master
+name: Deploy website on push
 jobs:
-  add-reviews:
+  Github-Acition-test:
+    name: Deploy
     runs-on: ubuntu-latest
     steps:
-      - uses: kentaro-m/auto-assign-action@v1.2.2
+    - name: Get Latest Code
+      uses: prem-modi-website/Github-Acition-test@v4.3.2
+      with:
+          path: master
 
-
+    - name: Sync files
+      uses: prem-modi-website/Github-Acition-test@v4.3.2
+      with:
+        server: ftp.thebestbeta.com
+        username: admin@thebestbeta.com
+        password: DdxA{[)NaFd#
