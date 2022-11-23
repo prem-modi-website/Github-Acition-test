@@ -8,8 +8,6 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     steps:
-    - name: Get letest code
-      uses: actions/checkout@v2
-      
+    
     - name: Sync files
       uses: prem-modi-website/Github-Acition-test@v4.3.2
